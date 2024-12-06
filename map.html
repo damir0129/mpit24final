@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карта Якутска с Метками</title>
+  <!-- Подключаем Leaflet CSS и JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+    }
+    /* Контейнер для карты */
+    #map {
+      height: 100vh; /* Карта на всю высоту */
+      width: 75%; /* Карта занимает 75% ширины */
+      float: left;
+    }
+    /* Левый блок с информацией */
+    .sidebar {
+      height: 100vh;
+      width: 25%;
+      background-color: #ffffff;
+      padding: 20px;
+      float: left;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+    .sidebar h2 {
+      margin-top: 0;
+      color: #A25EF5;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .sidebar input,
+    .sidebar textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .sidebar button {
+      padding: 12px;
+      background-color: #A25EF5;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+    }
+    .sidebar button:hover {
+      background-color: #A25EF5;
+    }
+    .marker-info {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .marker-info h4 {
+      margin-top: 0;
+      color: #333;
+      font-size: 18px;
+    }
+    .marker-info p {
+      color: #555;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Фон страницы -->
+  <div class="background"></div>
+  <div style="display: flex;">
+  <!-- Левый блок с информацией -->
+  <div class="sidebar">
+    <h2>Добавить метку</h2>
+    <input type="text" id="markerTitle" placeholder="Название метки" />
+    <textarea id="markerDescription" placeholder="Описание метки" rows="4"></textarea>
+    <button onclick="addMarker()">Добавить метку</button>
+    <div class="marker-info" id="markerInfo">
+      <h4>Информация о метке:</h4>
+      <p id="infoTitle"></p>
+      <p id="infoDescription"></p>
+    </div>
+    <div style="margin-top: 500px;">
+      <a href="main.html"> <button> На главную страницу </button> </a>
+    </div>
+  </div>
+  <!-- Контейнер для карты -->
+  <div id="map"></div>
+</div>
+  <script>
+    // Инициализация карты с координатами Якутска
+    var map = L.map('map').setView([62.0355, 129.6750], 12); // Координаты Якутска
+    // Добавление слоя с картой OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    // Массив для хранения меток
+    var markers = [];
+    // Функция для добавления метки
+    function addMarker() {
+      // Получаем данные из формы
+      var title = document.getElementById('markerTitle').value;
+      var description = document.getElementById('markerDescription').value;
+      // Проверка, чтобы поля не были пустыми
+      if (!title || !description) {
+        alert("Пожалуйста, заполните все поля!");
+        return;
+      }
+      // Получаем координаты клика на карте
+      var latLng = map.getCenter(); // Используем текущие координаты центра карты для примера
+      // Создаем метку на карте
+      var marker = L.marker(latLng).addTo(map);
+      
+      // Добавляем всплывающее окно с информацией
+      marker.bindPopup("<b>" + title + "</b><br>" + description);
+      // Сохраняем метку в массив
+      markers.push(marker);
+      // Очистить форму после добавления метки
+      document.getElementById('markerTitle').value = '';
+      document.getElementById('markerDescription').value = '';
+      // Отображаем информацию о метке в боковом меню
+      document.getElementById('infoTitle').innerText = "Название: " + title;
+      document.getElementById('infoDescription').innerText = "Описание: " + description;
+    }
+    // Добавляем обработчик клика на карту для отображения текущих координат
+    map.on('click', function(e) {
+      var lat = e.latlng.lat.toFixed(5);
+      var lng = e.latlng.lng.toFixed(5);
+      document.getElementById('markerTitle').value = 'Метка на ' + lat + ', ' + lng;
+      document.getElementById('markerDescription').value = 'Описание метки';
+    });
+  </script>
+</body>
+</html>

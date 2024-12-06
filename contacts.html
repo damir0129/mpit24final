@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добро пожаловать в Школьный Город!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #A25EF5);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 900px;
+    }
+    h1 {
+      font-size: 36px;
+      color: #A25EF5;
+      margin-bottom: 20px;
+    }
+    .welcome-message {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 40px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .button {
+      background-color: #A25EF5;
+      color: white;
+      font-size: 18px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 400px;
+    }
+    .button:hover {
+      background-color: #A25EF5;
+    }
+    .button:active {
+      background-color: #A25EF5;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+    .footer a {
+      color: #A25EF5;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Добро пожаловать в Юнивер!</h1>
+    <p class="welcome-message">Этот портал поможет тебе учиться, развлекаться и делать новые открытия!</p>
+    <div class="buttons">
+      <button class="button" onclick="location.href='register.html'">Зарегистрироваться</button>
+      <button class="button" onclick="location.href='login.html'">Авторизоваться</button>
+    </div>
+    <div class="footer">
+      <p>Разработано для школьников. <a href="#">Политика конфиденциальности</a> | <a href="#">Контакты</a></p>
+    </div>
+  </div>
+</body>
+</html>

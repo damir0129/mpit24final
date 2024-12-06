@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная страница</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #A25EF5);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .main-container {
+      background-color: #ffffff;
+      color: #333;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
+    h1 {
+      color: #A25EF5;
+      margin-bottom: 20px;
+    }
+    .user-info {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .main-button {
+      background-color: #A25EF5;
+      color: white;
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 200px;
+      transition: background-color 0.3s ease;
+    }
+    .main-button:hover {
+      background-color: #8a49d3;
+    }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+    .footer a {
+      color: #A25EF5;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <h1>Добро пожаловать!</h1>
+    <div class="user-info">
+      <p>Вы вошли как <span id="userRole">[Роль]</span></p>
+      <p id="userName">Привет, [Имя пользователя]!</p>
+    </div>
+    <div class="button-container">
+      <a href="profile.html"><button class="main-button" onclick="navigateTo('profile')">Мой профиль</button></a>
+      <a href="map.html"><button class="main-button" onclick="navigateTo('messages')">Карта города</button></a>
+      <a href="settings.html"><button class="main-button" onclick="navigateTo('settings')">Настройки</button></a>
+    </div>
+    <div class="footer">
+      <p><a href="logout.html">Выйти</a></p>
+    </div>
+  </div>
+  <script>
+    // Для демонстрации, используем фиктивные данные о пользователе
+    const userRole = "Ученик"; // Здесь будет роль пользователя (например, "Ученик", "Родитель", "Учитель")
+    const userName = "Иван"; // Имя пользователя
+    // Заполняем данные на странице
+    document.getElementById('userRole').textContent = userRole;
+    document.getElementById('userName').textContent = `Привет, ${userName}!`;
+    // Функция для навигации по кнопкам
+    //function navigateTo(page) {
+      //alert(`Вы перешли на страницу: ${page}`);
+      // Здесь вы можете реализовать редирект или открытие разных разделов
+      // Например: window.location.href = `/${page}.html`;
+    //}
+  </script>
+</body>
+</html>

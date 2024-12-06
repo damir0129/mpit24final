@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #A25EF5);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .auth-container {
+      background-color: #ffffff;
+      color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+    h1 {
+      text-align: center;
+      color: #A25EF5;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-group select {
+      appearance: none;
+      background-color: #fff;
+      color: #333;
+      background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D"http%3A//www.w3.org/2000/svg"%20viewBox%3D"0%200%2032%2032"%3E%3Cpath%20fill%3D"none"%20stroke%3D"%23333"%20stroke-width%3D"2"%20d%3D"M4%2010l12%2012L28%2010"%20/%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 10px;
+    }
+    .register-button {
+      background-color: #A25EF5;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .register-button:hover {
+      background-color: #8a49d3;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .footer a {
+      color: #A25EF5;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <h1>Регистрация</h1>
+    <!-- Форма регистрации -->
+    <div id="registerForm">
+      <div class="form-group">
+        <label for="name">Имя</label>
+        <input type="text" id="name" placeholder="Введите имя" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Введите email" />
+      </div>
+      <div class="form-group">
+        <label for="username">Логин</label>
+        <input type="text" id="username" placeholder="Введите логин" />
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" id="password" placeholder="Введите пароль" />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Подтверждение пароля</label>
+        <input type="password" id="confirmPassword" placeholder="Подтвердите пароль" />
+      </div>
+      <!-- Выпадающий список для выбора роли -->
+      <div class="form-group">
+        <label for="role">Выберите роль</label>
+        <select id="role">
+          <option value="" disabled selected>Выберите роль...</option>
+          <option value="student">Ученик</option>
+          <option value="parent">Родитель</option>
+        </select>
+      </div>
+      <button class="register-button" onclick="register()">Зарегистрироваться</button>
+    </div>
+    <!-- Ссылки в футере -->
+    <div class="footer">
+      <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+    </div>
+  </div>
+  <script>
+    // Функция регистрации
+    function register() {
+      const role = document.getElementById('role').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      // Проверка заполнения формы
+      if (!role || !name || !email || !username || !password || !confirmPassword) {
+        alert('Пожалуйста, заполните все поля!');
+        return;
+      }
+      if (password !== confirmPassword) {
+        alert('Пароли не совпадают!');
+        return;
+      }
+      // Здесь можно добавить логику для отправки данных на сервер
+      alert(`Регистрация прошла успешно! Роль: ${role}, Логин: ${username}, Email: ${email}`);
+    }
+  </script>
+</body>
+</html>

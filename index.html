@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добро пожаловать в Школьный Город!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #A25EF5);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 900px;
+    }
+    h1 {
+      font-size: 36px;
+      color: #A25EF5;
+      margin-bottom: 20px;
+    }
+    .welcome-message {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 40px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .button {
+      background-color: #A25EF5;
+      color: white;
+      font-size: 18px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 400px;
+    }
+    .button:hover {
+      background-color: #A25EF5;
+    }
+    .button:active {
+      background-color: #A25EF5;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+    .footer a {
+      color: #A25EF5;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    /* character2_3 */
+    .character2 {
+      position: absolute;
+      width: 75px;
+      height: 120px;
+      margin-left: 42%;
+      background: url(https://previews.dropbox.com/p/thumb/ACfHoEH6jFpoCjMHFW7xvGOJtb-zZeHRyRNap9K0-Zm4ao4w9w80W-TIfaQ9Ply6TG4uowT5kGbY4_8liyUZK5BpOc_y16ihXpZY18pF4JCTf8A6dYIHLUVF6cF_I8Jih8WpYd5rpzymig-pKwDaUmoPTLrqYPlLAp2Anlqy0w_xM82lD__7bc-AWTOm_CnG91JlPfXqX-Y3tdm8DnXCIMeuk12RjE37O9qT2zSTBwrCA3VKcO8ZSGF2XDGG-D1tVZ5HKqzm-tzSc7B31DUJgTxseqM_X2hX0NdhMq9nsE3eyWo9_wFpjUvx6p-H_aWEVBx6g5ykToiS6o8vIcPsgaub/p.png?is_prewarmed=true);
+    }
+    .character {
+      position: absolute;
+      width: 75px;
+      height: 120px;
+      margin-left: 30px;
+      background: url(https://previews.dropbox.com/p/thumb/ACdhBze_0vd06alaNnTj9kLaTJ7AhPLMY9LEMUMy_iaCHU-hqnO8Aw2_GCx9srDc_0vxQIntjAzsfG6UNSTlybKXPmd254Eo9mKzRGoyHjty4IQORAQTw406ANBlS8zDQfwvIlWMlh_TZ9AASE3NK0OYmjSjsxElgWLaY0rU1xScowkX7ptMJwME-W17wijvxu__Ef4VVMZcxxciiUeU8OwjHJ3kU92Mhu74keOnDa-bz-kwlJHRzS_nWYw35hw9Nc0ep3Z6fw-kLX8XHqPf07JRuUD2GEpNNrjOfU-rOMGmxQKq-xCv-GEtKDrOUkVcchqevEcYbvu4iXDumzU_nPFn/p.png?is_prewarmed=true);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="display: flex;">
+      <div class="character"></div>
+      <h1 style="margin-left: auto; margin-right: auto;">Добро пожаловать в Юнивер!</h1>
+      <div class="character2"></div>
+    </div>
+    <p class="welcome-message">Этот портал поможет тебе учиться, развлекаться и делать новые открытия!</p>
+    <div class="buttons">
+      <button class="button" onclick="location.href='register.html'">Зарегистрироваться</button>
+      <button class="button" onclick="location.href='login.html'">Авторизоваться</button>
+    </div>
+    <div class="footer">
+      <p>Разработано для школьников. <a href="#">Политика конфиденциальности</a> | <a href="#">Контакты</a></p>
+    </div>
+  </div>
+</body>
+</html>

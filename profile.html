@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль Ребенка</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #A25EF5);
+      color: #333;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    header {
+      background-color: #8a49d3;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .btn-main {
+      background-color: #8a49d3;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .btn-main:hover {
+      background-color: #8a49d3;
+    }
+    .profile-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .profile-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .profile-header img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+    }
+    .profile-header h2 {
+      margin-top: 10px;
+      color: #333;
+    }
+    .profile-header p {
+      color: #555;
+      font-size: 18px;
+    }
+    .profile-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .profile-details div {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .profile-details h3 {
+      margin-top: 0;
+      color: #8a49d3;
+    }
+    .profile-details p {
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #8a49d3;
+      color: white;
+      margin-top: 20px;
+      position: sticky;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with link to main page -->
+  <header>
+    <h1>Профиль</h1>
+    <a href="main.html" class="btn-main">Главная страница</a>
+  </header>
+  <!-- Profile Content -->
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="avatar">
+        <img src="default-avatar.png" id="avatar-img" alt="Аватар">
+      </div>
+      <h2 id="name">Максим Иванов</h2>
+      <p id="age">Возраст: 10 лет</p>
+      <p id="city">Город: Якутск</p>
+    </div>
+    <div class="profile-details">
+      <div>
+        <h3>Интересы</h3>
+        <p id="interests">Максим увлекается футболом, рисованием и видеоиграми.</p>
+      </div>
+      <div>
+        <h3>Образование</h3>
+        <p id="education">Учится в 4 классе. Любимая дисциплина — математика.</p>
+      </div>
+      <div>
+        <h3>Друзья</h3>
+        <p id="friends">Тимур, Оля, Саша — лучшие друзья Максима.</p>
+      </div>
+      <div>
+        <h3>Хобби</h3>
+        <p id="hobbies">Максим любит собирать модели машин и кататься на велосипеде.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer>
+    <p>Сетевой Город. Все права защищены &copy; 2024</p>
+  </footer>
+</body>
+</html>
+<script>
+  window.onload = function() {
+      if (localStorage.getItem('avatar')) {
+          document.getElementById('avatar-img').src = localStorage.getItem('avatar');
+      }
+      document.getElementById('name').textContent = localStorage.getItem('name') || 'Максим Иванов';
+      document.getElementById('age').textContent = localStorage.getItem('age') || '10 лет';
+      document.getElementById('city').textContent = localStorage.getItem('city') || 'Якутск';
+      document.getElementById('interests').textContent = localStorage.getItem('interests') || 'Футбол, рисование, видеоигры';
+      document.getElementById('hobbies').textContent = localStorage.getItem('hobbies') || 'Собирать модели машин, кататься на велосипеде';
+      document.getElementById('education').textContent = localStorage.getItem('education') || '4 класс, любимая дисциплина — математика';
+  }
+</script>
